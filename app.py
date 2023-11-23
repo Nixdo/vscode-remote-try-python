@@ -29,8 +29,10 @@ def GM_menu():
 
 def game_info():
     
-    for n in time.sleep(5):
-        print("NEXT ROUN STARTS IN: " + str(n)
+    for n in range(3, 0, -1):
+        print("NEXT ROUND STARTS IN: " + str(n))
+        time.sleep(1)
+        os.system('clear')
 
 def game_actions():
 
@@ -48,7 +50,7 @@ def RPS_Game(g_mode):
     for n in range(g_mode):
         
         os.system('clear')
-        
+
         print("Best of " + str(g_mode))
         print("\n" + player_1 + " V.S. " + player_2)
         print("\nRound " + str(n))
@@ -65,6 +67,7 @@ def RPS_Game(g_mode):
 
         if choice_p1 == 1 and choice_p2 == 1:
             print("It's a draw!")
+            time.sleep(2)
             game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
@@ -116,8 +119,8 @@ def RPS_Game(g_mode):
     elif p1_marker < p2_marker:
         print(player_2 + " WINS THE GAME!")
     elif p1_marker == p2_marker:
-        print("It's a draw!/nNO ONE WINS THE GAME!")
-    input("Press Enter to continue...")
+        print("It's a draw!\nNO ONE WINS THE GAME!")
+    input("\nPress Enter to continue...")
     os.system('clear')
 
 menu()
