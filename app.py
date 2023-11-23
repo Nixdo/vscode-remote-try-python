@@ -4,6 +4,7 @@
 #-----------------------------------------------------------------------------------------
 
 import os
+import time
 
 from flask import Flask
 app = Flask(__name__)
@@ -12,8 +13,9 @@ app = Flask(__name__)
 def hello():
     return app.send_static_file("index.html")
 
+os.system('clear')
 def menu():
-    print("Welcome to Rock, Paper, Scissors!")
+    print("Welcome to Rock, Paper, Scissors!\n")
     print("1. Play Game")
     print("0. Exit")
 
@@ -25,7 +27,13 @@ def GM_menu():
     print("4. Best of 9")
     print("5. Back to Main Menu")
 
+def game_info():
+    
+    for n in time.sleep(5):
+        print("NEXT ROUN STARTS IN: " + str(n)
+
 def game_actions():
+
     print("Please enter your move: ")
     print("1. Rock")
     print("2. Paper")
@@ -34,47 +42,63 @@ def game_actions():
 
 def RPS_Game(g_mode):
     
-    for n in range(g_mode):
+    p1_marker = 0
+    p2_marker = 0
 
-        p1_marker = 0
-        p2_marker = 0
+    for n in range(g_mode):
         
-        print("Round " + str(n))
+        os.system('clear')
+        
+        print("Best of " + str(g_mode))
+        print("\n" + player_1 + " V.S. " + player_2)
+        print("\nRound " + str(n))
         game_actions()
         choice_p1 = int(input(player_1 + "! Enter your choice: "))
         os.system('clear')
-        print("Round " + str(n))
+
+        print("Best of " + str(g_mode))
+        print("\n" + player_1 + " V.S. " + player_2)
+        print("\nRound " + str(n))
         game_actions()
         choice_p2 = int(input(player_2 + "! Enter your choice: "))
         os.system('clear')
 
         if choice_p1 == 1 and choice_p2 == 1:
             print("It's a draw!")
+            game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
         elif choice_p1 == 1 and choice_p2 == 2:
             print(player_2 + " wins!")
+            game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 1 and choice_p2 == 3:
             print(player_1 + " wins!")
+            game_info()
             p1_marker = p1_marker + 1
         elif choice_p1 == 2 and choice_p2 == 1:
             print(player_1 + " wins!")
+            game_info()
             p1_marker = p1_marker + 1
         elif choice_p1 == 2 and choice_p2 == 2:
             print("It's a draw!")
+            game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
         elif choice_p1 == 2 and choice_p2 == 3:
             print(player_2 + " wins!")
+            game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 3 and choice_p2 == 1:
             print(player_2 + " wins!")
+            game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 3 and choice_p2 == 2:
             print(player_1 + " wins!")
+            game_info()
         elif choice_p1 == 3 and choice_p2 == 3:
             print("It's a draw!")
+            game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
         elif choice_p1 == 4 and choice_p2 == 4:
@@ -83,12 +107,18 @@ def RPS_Game(g_mode):
             print("Invalid option")
 
     os.system('clear')
+    print("Final Score:")
+    print(player_1 + ": " + str(p1_marker), end="\n")
+    print(player_2 + ": " + str(p2_marker))
+    print()
     if p1_marker > p2_marker:
         print(player_1 + " WINS THE GAME!")
     elif p1_marker < p2_marker:
         print(player_2 + " WINS THE GAME!")
     elif p1_marker == p2_marker:
-        print("It's a draw! NO ONE WINS THE GAME!")
+        print("It's a draw!/nNO ONE WINS THE GAME!")
+    input("Press Enter to continue...")
+    os.system('clear')
 
 menu()
 option = int(input("Enter option: "))
@@ -96,7 +126,7 @@ option = int(input("Enter option: "))
 while option != 0:
 
     if option == 1:
-
+        os.system('clear')
         player_1 = input("Player 1, please enter your name: ")
         player_2 = input("Player 2, please enter your name: ")
         os.system('clear')
@@ -106,16 +136,12 @@ while option != 0:
 
         while GM_option != 5:
             if GM_option == 1:
-                print("Best of 3")
                 RPS_Game(3)
             elif GM_option == 2:
-                print("Best of 5")
                 RPS_Game(5)
             elif GM_option == 3:
-                print("Best of 7")
                 RPS_Game(7)
             elif GM_option == 4:
-                print("Best of 9")
                 RPS_Game(9)
             elif GM_option == 5:
                 os.system('clear')
@@ -129,9 +155,11 @@ while option != 0:
 
     else:
         print("Invalid option")
+
     os.system('clear')
     print()
     menu()
     option = int(input("Enter option: "))
 
+os.system('clear')
 print("Bye Bye!")
