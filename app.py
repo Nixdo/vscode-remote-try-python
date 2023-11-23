@@ -40,7 +40,7 @@ def game_actions():
     print("1. Rock")
     print("2. Paper")
     print("3. Scissors")
-    print("4. Quit")
+    print("4. Quit\n")
 
 def RPS_Game(g_mode):
     
