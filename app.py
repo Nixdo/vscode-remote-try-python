@@ -5,6 +5,7 @@
 
 import os
 import time
+import random
 
 from flask import Flask
 app = Flask(__name__)
@@ -62,7 +63,10 @@ def RPS_Game(g_mode):
         print("\n" + player_1 + " V.S. " + player_2)
         print("\nRound " + str(n))
         game_actions()
-        choice_p2 = int(input(player_2 + "! Enter your choice: "))
+        ## Enable this line to play against the computer
+        choice_p2 = random.randint(1, 3)
+        ## Enable this line to play against another 'human' player
+        #choice_p2 = int(input(player_2 + "! Enter your choice: "))
         os.system('clear')
 
         if choice_p1 == 1 and choice_p2 == 1:
@@ -73,34 +77,42 @@ def RPS_Game(g_mode):
             p2_marker = p2_marker + 1
         elif choice_p1 == 1 and choice_p2 == 2:
             print(player_2 + " wins!")
+            time.sleep(2)
             game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 1 and choice_p2 == 3:
             print(player_1 + " wins!")
+            time.sleep(2)
             game_info()
             p1_marker = p1_marker + 1
         elif choice_p1 == 2 and choice_p2 == 1:
             print(player_1 + " wins!")
+            time.sleep(2)
             game_info()
             p1_marker = p1_marker + 1
         elif choice_p1 == 2 and choice_p2 == 2:
             print("It's a draw!")
+            time.sleep(2)
             game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
         elif choice_p1 == 2 and choice_p2 == 3:
             print(player_2 + " wins!")
+            time.sleep(2)
             game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 3 and choice_p2 == 1:
             print(player_2 + " wins!")
+            time.sleep(2)
             game_info()
             p2_marker = p2_marker + 1
         elif choice_p1 == 3 and choice_p2 == 2:
             print(player_1 + " wins!")
+            time.sleep(2)
             game_info()
         elif choice_p1 == 3 and choice_p2 == 3:
             print("It's a draw!")
+            time.sleep(2)
             game_info()
             p1_marker = p1_marker + 1
             p2_marker = p2_marker + 1
